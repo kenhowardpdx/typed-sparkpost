@@ -1,0 +1,12 @@
+{
+  "name": "sparkpost",
+  "main": "sparkpost.d.ts",
+  "homepage": "https://github.com/SparkPost/node-sparkpost",
+  "version": "",
+  "devDependencies": {
+    "blue-tape": "registry:npm/blue-tape#0.1.0+20160322235613"
+  },
+  "ambientDevDependencies": {
+    "node": "registry:dt/node#4.0.0+20160319033040"
+  }
+}
