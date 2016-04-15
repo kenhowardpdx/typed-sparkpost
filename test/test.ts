@@ -14,7 +14,6 @@ export function sendMail(config: { to: { email: string; name: string; }; subject
             name: 'Test',
             email: 'postmaster@test.com'
         },
-        to: [config.to],
         reply_to: 'postmaster@test.com'
     };
     
