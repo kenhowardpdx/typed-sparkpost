@@ -24,6 +24,7 @@ declare module sparkpost {
     interface BasicOptions {
         headers?: Headers;
         origin?: string;
+        endpoint?: string;
         apiVersion?: string;
         uri?: string;
         strictSSL?: boolean; // default = true
