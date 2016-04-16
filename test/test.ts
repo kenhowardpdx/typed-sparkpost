@@ -3,7 +3,7 @@
 import test = require('blue-tape');
 import sparkpost = require('sparkpost');
 
-var client = new sparkpost('apikey');
+var sparky = new sparkpost('apikey');
 
 export function sendMail(config: { to: { email: string; name: string; }; subject: string; body: string; }, callback: (err: any, res?: any) => any ) {
     let content = {
@@ -32,7 +32,7 @@ export function sendMail(config: { to: { email: string; name: string; }; subject
         }
     }
     
-    client.transmissions.send(reqOpts, (err, res) => {
+    sparky.transmissions.send(reqOpts, (err, res) => {
         if (err) {
             return callback(err);
         }
