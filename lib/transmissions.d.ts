@@ -1,8 +1,10 @@
+import * as request from 'request';
+
 export interface Transmissions {
-    send(options: SendOptions, callback: (err: Error, res) => any): void;
-    all(callback: (err: Error, res) => any): void;
-    all(options: AllOptions, callback: (err: Error, res) => any): void;
-    find(transmissionID: string, callback: (err: Error, res) => any): void;
+    send(options: SendOptions, callback: TransmissionsCallback<TransmissionSentResponse>): void;
+    all(callback:  TransmissionsCallback<Array<TransmissionSummary>>): void;
+    all(options: AllOptions, callback: TransmissionsCallback<Array<TransmissionSummary>>): void;
+    find(transmissionID: string, callback: TransmissionsCallback<TransmissionSummary>): void;
 }
 
 interface SendOptions {
@@ -51,4 +53,22 @@ interface Content {
       headers?: { [key: string]: string };
       text: string;
       html: string;
+}
+
+interface TransmissionSummary {
+    id: number;
+    template_id: string;
+    campaign_id: string;
+    description: string;
+    state: string;
+}
+
+interface TransmissionSentResponse {
+    id: number;
+    total_rejected_recipients: number;
+    total_accepted_recipients: number;
+}
+
+interface TransmissionsCallback<T> {
+    (error: any, response: { results: T }): void;
 }

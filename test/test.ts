@@ -3,7 +3,7 @@
 import test = require('blue-tape');
 import sparkpost = require('sparkpost');
 
-var sparky = new sparkpost('apikey');
+var sparky = new sparkpost('d67d23322d5d02d86d560cbe4e2252c26b432aec');
 
 export function sendMail(config: { to: { email: string; name: string; }; subject: string; body: string; }, callback: (err: any, res?: any) => any ) {
     let content = {
